@@ -1,0 +1,5 @@
+import { motion } from 'framer-motion'
+import { CodeXml } from 'lucide-react'
+import SectionHeading from '../components/SectionHeading'
+import { skills } from '../data/portfolio'
+export default function Skills(){return <section id="skills" className="section-pad bg-white/[.015]"><div className="section-wrap"><SectionHeading eyebrow="Technical toolkit" title="Skills I'm growing." description="A snapshot of the technologies I have worked with and the areas I am actively exploring."/><div className="grid gap-5 md:grid-cols-2">{skills.map((group,i)=><motion.div key={group.category} initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:i*.08}} className="glass-card p-6"><div className="mb-5 flex items-center gap-3"><div className="icon-box"><CodeXml size={19}/></div><h3 className="font-display text-lg font-semibold text-white">{group.category}</h3></div><div className="flex flex-wrap gap-2">{group.items.map(item=><span key={item} className="skill-chip">{item}</span>)}</div></motion.div>)}</div></div></section>}
